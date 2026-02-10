@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import * as cors from 'cors';
 import * as dotenv from 'dotenv';
 import connectDB from './config/database';
+import authRoutes from './routes/authRoutes';
 
 // Load environment variables
 dotenv.config();
@@ -18,6 +19,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.use('/api/auth', authRoutes);
+
 app.get('/', (req: Request, res: Response) => {
   res.send('API is running...');
 });
