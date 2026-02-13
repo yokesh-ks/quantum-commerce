@@ -13,3 +13,42 @@ body {
     color-scheme: dark;
   }
 }
+
+/* Fix for MUI TextField label overlapping with value */
+.MuiTextField-root .MuiOutlinedInput-input {
+  /* Ensure input value is properly visible */
+  color: inherit;
+}
+
+/* Fix for label not shrinking when value is present */
+.MuiInputLabel-outlined {
+  /* Ensure label position is correct */
+  transform: translate(14px, 20px) scale(1);
+}
+
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
+  transform: translate(14px, -6px) scale(0.75);
+}
+
+/* Hide placeholder when value is present in outlined input */
+.MuiOutlinedInput-input::placeholder {
+  opacity: 1 !important;
+  color: #9ca3af !important;
+}
+
+.MuiOutlinedInput-input:not(:placeholder-shown)::placeholder {
+  opacity: 0 !important;
+}
+
+/* Ensure proper styling for input fields */
+.MuiOutlinedInput-root {
+  background-color: transparent;
+}
+
+.MuiOutlinedInput-root fieldset {
+  border-color: rgba(0, 0, 0, 0.23);
+}
+
+.dark .MuiOutlinedInput-root fieldset {
+  border-color: rgba(255, 255, 255, 0.23);
+}
